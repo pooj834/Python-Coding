@@ -1,0 +1,33 @@
+Write a function to find the longest common prefix string amongst an array of strings.
+
+If there is no common prefix, return an empty string "".
+
+
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        compare_string=strs[0]
+        pref=""
+        c=0
+        if len(strs)!=1:
+            for string in strs:
+                c=c+1
+                m=len(compare_string) 
+                n=len(string)          
+                if c==1:
+                    continue
+                pref=""  
+                length=min(m,n)
+                if length!=1:
+                    for i in range(0,length): 
+                        if string[i]!=compare_string[i]:
+                            break      
+                        pref+=compare_string[i]
+                else:
+                    if string[0]!=compare_string[0]:
+                         break
+                    pref=string[0]
+                compare_string=pref
+        else:
+            pref = strs[0]
+        return pref        
+            
