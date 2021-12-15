@@ -1,0 +1,23 @@
+Given an m x n matrix, return all elements of the matrix in spiral order.
+
+class Solution:
+    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+            def reverse(l):
+                return list(reversed(l))
+            
+            l=[]
+            
+            while len(matrix)>0:
+                if matrix:
+                    l.extend(matrix.pop(0))
+                if matrix:
+                    if matrix[0]:
+                        l.extend([x.pop(-1) for x in matrix]) 
+                if matrix:
+                    l.extend(reverse(matrix.pop(-1)))
+                if matrix:
+                    if matrix[0]:
+                        l.extend([x.pop(0) for x in reverse(matrix)])
+                
+                             
+            return l             
