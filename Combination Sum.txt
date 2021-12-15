@@ -17,3 +17,7 @@ class Solution:
                         el[i].append(newlist+[c])
                         
         return el[target]
+
+
+1 2 3 5 8 13
+
