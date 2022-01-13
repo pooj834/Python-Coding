@@ -6,11 +6,8 @@ You can return the answer in any order.
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        
-        m={}
-        
         for index,cur_val in enumerate(nums):
-            compliment = target-cur_val
-            if compliment in m:
-                return m[compliment],index
-            m[cur_val]=index
+            compliment=target-cur_val
+            if compliment in nums and nums.index(compliment)!=index:
+                return index,nums.index(compliment)
+            
